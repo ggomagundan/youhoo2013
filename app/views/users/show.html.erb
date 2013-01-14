@@ -1,0 +1,17 @@
+<%= provide(:title, 'UserInfo') %>
+  <h1>User Info</h1>
+<div class ="row">
+  <aside class="span4">
+    <section>
+	<img src="http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal" alt="profile_image">
+  	<h1><%= current_user.name %></h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if current_user %>
+	<h3> connect facebook</h3>
+    <% end %>
+  </div>
+
+</div>
+

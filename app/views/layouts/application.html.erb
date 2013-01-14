@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ruby on Rails Sample | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+    <%= render 'layouts/header' %>
+    <div class="container margin_top">
+	<% flash.each do |key, value| %>
+	  <!--  <%= content_tag(:div, value, class: "alert alert-#{key}") %> -->
+	    <div class="alert alert-<%= key %>"><%= value %> </div>
+	<% end %>
+	<%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development?%>
+    <%= debug(request) if Rails.env.development?%>
+   
+</body>
+</html>

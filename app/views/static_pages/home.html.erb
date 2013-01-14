@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+<% if current_user %>
+  <div class="row">
+    <%= image_tag("main.png", alt: "main image"   )  %>
+  </div>
+
+<% else %>
+
+<div class = "hero-unit">
+    <span class="span8">
+    <%= image_tag("main_img.png", alt: "main image"   )  %>
+    </span>
+</div>
+
+<% end %>
+</body>
+</html>

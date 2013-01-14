@@ -1,0 +1,13 @@
+access_token=428731780533410|HShkkzyjCp_v4x5qBwJnqvAAHCk
+https://graph.facebook.com/oauth/access_token?client_id=428731780533410&client_secret=fdd10a7a7b62f24e2741b01ba2161d64&&grant_type=client_credentials
+
+https://graph.facebook.com/app?access_token=428731780533410|HShkkzyjCp_v4x5qBwJnqvAAHCk
+
+{
+   "id": "428731780533410",
+   "name": "youhoo2013",
+   "link": "http://www.facebook.com/apps/application.php?id=428731780533410",
+   "namespace": "secondcookit",
+   "icon_url": "http://static.ak.fbcdn.net/rsrc.php/v2/yT/r/4QVMqOjUhcd.gif",
+   "logo_url": "http://static.ak.fbcdn.net/rsrc.php/v2/y_/r/9myDd8iyu0B.gif"
+}

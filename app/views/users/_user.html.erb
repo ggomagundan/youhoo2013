@@ -1,0 +1,5 @@
+    <li>
+	<img src="http://graph.facebook.com/<%= current_user.uid %>/picture?type=small" alt="profile_image">
+    	<%= link_to user.name, user %>
+	|<%= link_to "delete", user, method: :delete, confirm:"Really?"  %> |
+    </li>

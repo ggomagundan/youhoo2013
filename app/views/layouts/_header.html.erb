@@ -1,0 +1,40 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+   	<div class="container">
+		<div class="top">
+		  <div class="logo">
+		    <%= link_to image_tag("logo.png", alt: "Logo", width: "150"  ), root_path  %>
+		  </div>
+		</div>
+	    <nav>
+	        <ul class = "nav pull-right">
+<!--		    <li><%= link_to "Home", root_path %></li>-->
+		    <li><%= link_to "YOUHOO?", about_path %></li>
+		    <li><%= link_to "ORG_LIST", list_path %></li>
+		    <li><%= link_to "REPORT_VOLUNTEER", articles_path %></li>
+		    <li><%= link_to "SHARE_VOLUNTEER", '#' %></li>
+		    <li><%= link_to "Help", help_path %></li>
+		  <% if current_user #&&  @user.uid == '100001720088532' %>
+ 
+		    <li><%= link_to "Users", users_path %></li>
+		<% end %>
+		    <% if current_user %>
+			<li id="fat-menu" class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			    <%= current_user.name %><b class="caret"></b>
+			  </a>
+			  <ul class="dropdown-menu">
+			    <li><%= link_to "Profile", user_path(current_user) %> </li>
+			    <li class="divider"></li>
+			    <li><%= link_to "Logout", signout_path, method:"delete" %> </li>
+			  </ul>
+			</li>
+			<li> <%= link_to "Logout", signout_path %> </li>
+ 		    <% else %>
+		    	<li><%= link_to "Sign in with facebook", "/auth/facebook/", id: "sign_in" %></li>
+		    <% end %>
+		</ul>
+	    </nav>
+	</div>
+    </div>
+</header>
