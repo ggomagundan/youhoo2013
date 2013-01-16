@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
 
   resources :articles
-  resources :users  
+#  resources :users  
   resources :sessions, only: [:create, :destroy]
   resources :microposts, only: [:create, :destroy]
 
@@ -12,7 +12,7 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/list', to: 'org_list#show'
 
-  match '/signup', to: 'users#new'
+  match '/signin', to: 'users#signin'
   match '/signout', to: 'sessions#destroy'
 
   match 'auth/:provider/callback', to: 'sessions#create'

@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+
+  before_filter :is_login, only: [:new, :edit]
+
   def index
     @articles = Article.all
 
@@ -14,7 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
@@ -24,6 +27,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   # GET /articles/new.json
   def new
+
     @article = Article.new
 
     respond_to do |format|
@@ -41,6 +45,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = current_user.articles.new(params[:article])
+    @article.popularity =0;
     #binding.pry
 
     respond_to do |format|
@@ -79,6 +84,14 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to articles_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def is_login
+    if current_user.nil?
+	redirect_to signin_path
+
     end
   end
 end
