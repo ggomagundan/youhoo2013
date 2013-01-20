@@ -11,6 +11,9 @@
     <% if current_user %>
 	<h3> connect facebook</h3>
     <% end %>
+    <%= current_user.articles.each do |ar| %>
+	<%= ar.title %>
+<% end %>
   </div>
 
 </div>

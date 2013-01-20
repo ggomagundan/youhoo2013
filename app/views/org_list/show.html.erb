@@ -1,3 +1,8 @@
 <% provide(:title,'Organization List') %>
 <h1>OrgList#show</h1>
 <p>Find me in app/views/org_list/show.html.erb</p>
+
+<% if current_user &&  current_user.uid == '100001720088532' %>
+<%= link_to('write', orgList_path) %>
+
+<% end %>

@@ -8,8 +8,10 @@ SampleApp::Application.routes.draw do
   root :to => 'static_pages#home'
   
   match '/help', to: 'static_pages#help'
+  match '/youhoo', to: 'static_pages#youhoo'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  match '/orgList', to: 'org_list#new'
   match '/list', to: 'org_list#show'
 
   match '/signin', to: 'users#signin'
