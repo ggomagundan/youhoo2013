@@ -17,6 +17,7 @@ SampleApp::Application.routes.draw do
 
   match '/signin', to: 'users#signin'
   match '/signout', to: 'sessions#destroy'
+  match '/signadmin', to: 'users#admin_sign'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
