@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
 
   resources :articles
-#  resources :users  
+  resources :users  
   resources :sessions, only: [:create, :destroy]
   resources :microposts, only: [:create, :destroy]
 
