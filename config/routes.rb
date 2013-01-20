@@ -1,9 +1,12 @@
 SampleApp::Application.routes.draw do
 
+  resources :org_lists
+
+
+  resources :orglists
   resources :articles
   resources :users  
   resources :sessions, only: [:create, :destroy]
-  resources :microposts, only: [:create, :destroy]
 
   root :to => 'static_pages#home'
   
@@ -11,8 +14,6 @@ SampleApp::Application.routes.draw do
   match '/youhoo', to: 'static_pages#youhoo'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-  match '/orgList', to: 'org_list#new'
-  match '/list', to: 'org_list#show'
 
   match '/signin', to: 'users#signin'
   match '/signout', to: 'sessions#destroy'
