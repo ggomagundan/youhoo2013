@@ -24,6 +24,10 @@
 <p>
   <b>Photo:</b>
   <%= @article.photo_id %>
+  <%= @picture.each do |pic| %>
+      <%= image_tag pic.image_url() if pic.image? %>
+      <%-# if wanna thumbnail, pic.image_url(:thumb) -%>
+  <% end %>
 </p>
 
 

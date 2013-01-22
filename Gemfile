@@ -14,6 +14,7 @@ gem 'pry'
 
 # to upload image
 gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

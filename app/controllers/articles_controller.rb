@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
+    @picture = Picture.where(:article_id => params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -47,9 +48,13 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(params[:article])
     @article.popularity =0;
     #binding.pry
+    @pic = {image: @article.photo_id}
+    @picture = @article.picture.new(@pic)
+    @article.photo_id = ""
 
     respond_to do |format|
       if @article.save
+         @picture.save
         format.html { redirect_to articles_path, notice: 'Article was successfully created.' }
         format.json { render json: @article, status: :created, location: @article }
       else
