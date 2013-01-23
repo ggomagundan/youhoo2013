@@ -93,6 +93,11 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article = Article.find(params[:id])
+    @picture = Picture.where(:article_id => params[:id])
+    @picture.each do |pic|
+        pic.destroy
+    end
+
     @article.destroy
 
     respond_to do |format|
