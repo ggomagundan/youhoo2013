@@ -6,6 +6,7 @@ preview
 </div>
 <table>
   <tr>
+    <th>No</th>
     <th>User</th>
     <th>Title</th>
     <th>Content</th>
@@ -29,8 +30,9 @@ preview
 <% end %>
   </div>
 
-<% @articles.each do |article| %>
+<% @articles.reverse.each do |article| %>
   <tr>
+    <td><%= article.id %></td>
     <td><%= article.user_id %></td>
     <td><%= article.title %></td>
     <td><%= article.content %></td>

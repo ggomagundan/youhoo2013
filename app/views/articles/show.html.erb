@@ -22,11 +22,14 @@
 </p>
 
 <p>
+  <% pic_exist = Picture.find_by_article_id(@article.id) %>
+  <% if pic_exist != nil %>
   <b>Photo:</b>
   <%= @article.photo_id %>
-  <%= @picture.each do |pic| %>
+  <% @picture.each do |pic| %>
       <%= image_tag pic.image_url() if pic.image? %>
       <%-# if wanna thumbnail, pic.image_url(:thumb) -%>
+  <% end %>
   <% end %>
 </p>
 

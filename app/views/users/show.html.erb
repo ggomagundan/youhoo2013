@@ -11,9 +11,20 @@
     <% if current_user %>
 	<h3> connect facebook</h3>
     <% end %>
-    <%= current_user.articles.each do |ar| %>
-	<%= ar.title %>
-<% end %>
+
+    <table class="myArticle">
+      <tr>
+	<th> Title </th>
+	<th> At    </th>
+      </tr>
+    <% current_user.articles.each do |ar| %>
+      <tr>
+ 	<td><%= link_to(ar.title, article_path(ar.id)) %></td>
+	<td><%= time_ago_in_words(ar.updated_at)%> ago</td>
+      </tr>
+
+     <% end %>
+     </table>
   </div>
 
 </div>
