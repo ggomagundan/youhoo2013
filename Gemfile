@@ -12,6 +12,9 @@ gem 'omniauth-facebook'
 # to debug on console
 gem 'pry'
 
+# Parse to Json
+gem 'json'
+
 # to upload image
 gem 'carrierwave'
 gem 'rmagick'

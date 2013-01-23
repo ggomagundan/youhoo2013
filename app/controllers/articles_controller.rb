@@ -18,7 +18,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @picture = Picture.where(:article_id => params[:id])
-    
+    @article.popularity += 1
+    @article.save   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
@@ -68,9 +69,17 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
+    @picture = Picture.where(:article_id => params[:id])
+    current_picture = ''
+    @picture.each do |pic|
+        current_picture = {image:params[:article]['photo_id']}
+    end
+    params[:article]['photo_id'] = ''
+    binding.pry
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        @picture.first.update_attributes(current_picture)
         format.html { redirect_to articles_path, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
