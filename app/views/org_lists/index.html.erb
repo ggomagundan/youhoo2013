@@ -1,0 +1,29 @@
+<h1>Listing org_lists</h1>
+
+<table class="orgList">
+  <tr>
+    <th>Name</th>
+    <th>Desc</th>
+    <th>Tel</th>
+<% if current_user &&  current_user.uid == '100001720088532' %>
+    <th>views</th>
+<% end %>
+  </tr>
+
+<% @org_lists.reverse.each do |org_list| %>
+  <tr>
+    <td><%= link_to(org_list.name, org_list) %></td>
+    <td><%= org_list.desc %></td>
+    <td><%= org_list.tel %></td>
+<% if current_user &&  current_user.uid == '100001720088532' %>
+    <td><%= org_list.views %></td>
+   <% end %> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if current_user &&  current_user.uid == '100001720088532' %>
+<%= link_to 'New Org list', new_org_list_path %>
+<% end %>

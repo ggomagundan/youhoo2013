@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @org_list.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @org_list.desc %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%= @org_list.tel %>
+</p>
+
+
+<% if current_user &&  current_user.uid == '100001720088532' %>
+<%= link_to 'Edit', edit_org_list_path(@org_list) %> |
+<%= link_to 'Destroy', org_list_path(@org_list.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
