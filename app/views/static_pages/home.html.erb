@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>
-</title>
 </head>
 <body>
 <% if current_user %>
@@ -42,6 +40,8 @@
         <% end %>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
     </div><!-- /.carousel -->
 
 
@@ -61,9 +61,9 @@
               <% (0..2).each do |n| %>
                 <div class="featurette">
                     <% if n % 2 == 0 %> 
-                        <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-right") %>
+                      <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-right") %>
                     <% else %>   
-                        <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-left") %>
+                      <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-left" ) %>
                     <% end %>
                     <h2 class="featurette-heading"><%= titles[n] %> <span class="muted"><%= sTitles[n] %></span></h2>
                     <p class="lead"><%= leads[n] %></p>
@@ -74,6 +74,6 @@
 
                                                         <!-- /END THE FEATURETTES -->
 
-
+                                                      </div>
 </body>
 </html>

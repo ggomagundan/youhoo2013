@@ -1,6 +1,7 @@
-<header class="navbar">
+<header >
   <div class="navbar-wrapper">
-
+    <div class="container">
+      <div class="navbar navbar-inverse">
           <div class="navbar-inner">
             <%= link_to "Youhoo", root_path, class: "brand" %>
              <div class="nav-collapse collapse">
@@ -21,6 +22,7 @@
 		    <% if current_user %>
 			<li id="fat-menu" class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=square",  alt: "profile_image", :size => '20x20') %>
 			    <%= current_user.name %><b class="caret"></b>
 			  </a>
 			  <ul class="dropdown-menu">
@@ -36,5 +38,7 @@
                 </ul>
             </div><!--/.nav-collapse -->
       </div><!-- /.navbar-inner -->
-		</div>
+    </div>
+  </div>
+</div>
 </header>
