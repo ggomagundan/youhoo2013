@@ -34,7 +34,6 @@ audio:not([controls]) {
 }
 
 html {
-  font-size: 100%;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -230,11 +229,6 @@ body {
   background-color: #ffffff;
 }
 
-a {
-  color: #0088cc;
-  text-decoration: none;
-}
-
 a:hover {
   color: #005580;
   text-decoration: underline;
@@ -284,12 +278,14 @@ a:hover {
   margin-left: 20px;
 }
 
-.container,
+/*
+ * .container,
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
   width: 940px;
 }
+*/
 
 .span12 {
   width: 940px;

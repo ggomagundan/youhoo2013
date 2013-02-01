@@ -10,23 +10,20 @@
       </ul>
     </div>
   <% end %>
-<div class="span6 offset3">
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%- f.label :title -%>
+    <%= f.text_field :title, :style => "width:500px;" %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
+    <%- f.label :content -%>
+    <%= f.text_area :content, :size => "20x10", :placeholder =>"show your report" , :maxlength => 140, :style => "width:800px;height:200px;" %>
   </div>
   <div class="field">
-    <%= f.label :photo_id %><br />
+    <%- f.label :photo_id -%>
     <%= f.file_field :photo_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 
-<%= link_to 'Back', articles_path %>
-</div>
 <% end %>

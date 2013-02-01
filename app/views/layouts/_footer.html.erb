@@ -1,13 +1,13 @@
-<footer class="footer">
-    <small>
-	<a href="http://ggogun.kr/">Rails</a>
-	    by GnG
-    </small>
+<footer class="footer container">
     <nav>
-	<ul>
-	    <li><%= link_to "About", about_path %></li>
-	    <li><%= link_to "Contact", contact_path %></li>
-	    <li><%= link_to "Blog", "http://www.ggogun.kr", target: "blank" %></li>
+      <ul>
+        <li> © 2013 <%= link_to "DaumFoundation", "http://www.daumfoundation.org/", :target => "blank" %> </li>
+        <li><%= link_to image_tag("daumfoundation.gif", :alt => "daumFoundation"), "http://www.daumfoundation.org/", :targe => "blank" %> </li>
+        <li><%= link_to "ITCanus", "http://www.daumfoundation.org/itcanus/introduce", :target => "blank" %> </li>
+        <li><%= link_to image_tag("itcanus.gif", :alt => "itcanus"), "http://www.daumfoundation.org/itcanus/introduce" , :target => "blank" %> </li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+
 	</ul>
     </nav>
 </footer>

@@ -11,7 +11,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Volunteer<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                               <li><%= link_to "Write Epiloge", new_article_path %></li>
-                              <li><%= link_to "Share Epilogue", '#' %></li>
+                              <li><%= link_to "Share Epilogue",articles_path %></li>
                             </ul>
                     </li>
 <li><%= link_to "NPO List", org_lists_path %></li>
@@ -22,8 +22,8 @@
 		    <% if current_user %>
 			<li id="fat-menu" class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=square",  alt: "profile_image", :size => '20x20') %>
 			    <%= current_user.name %><b class="caret"></b>
+          <%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=square",  alt: "profile_image", :size => '20x20') %>
 			  </a>
 			  <ul class="dropdown-menu">
 			    <li><%= link_to "Profile", user_path(current_user) %> </li>

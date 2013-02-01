@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @picture = Picture.where(:article_id => params[:id])
+    @ppp = @article.picture.first
     @article.popularity += 1
     @article.save   
     respond_to do |format|
@@ -70,13 +71,11 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @picture = Picture.where(:article_id => params[:id])
-    current_picture = ''
-    @picture.each do |pic|
-        current_picture = {image:params[:article]['photo_id']}
-    end
+    current_picture = {image:params[:article]['photo_id']}
     params[:article]['photo_id'] = ''
-    binding.pry
+    #binding.pry
 
+    binding.pry
     respond_to do |format|
       if @article.update_attributes(params[:article])
         @picture.first.update_attributes(current_picture)

@@ -1,8 +1,9 @@
-<% provide(:title,'Report Volunteer') %>
+<div class="hero-unit container" style="margin-top:40px;">
 <p id="notice"><%= notice %></p>
 
 <p>
   <b>User:</b>
+<% provide(:title,'Report Volunteer') %>
   <%= @article.user_id %>
 </p>
 
@@ -24,15 +25,11 @@
 <p>
   <% pic_exist = Picture.find_by_article_id(@article.id) %>
   <% if pic_exist != nil %>
-  <b>Photo:</b>
-  <%= @article.photo_id %>
-  <% @picture.each do |pic| %>
-      <%= image_tag pic.image_url() if pic.image? %>
-      <%-# if wanna thumbnail, pic.image_url(:thumb) -%>
-  <% end %>
+    <%= image_tag @ppp.image_url(), :alt=>"pic", :size => "600x400" %>
   <% end %>
 </p>
-
+  
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+</div>
