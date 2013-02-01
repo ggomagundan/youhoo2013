@@ -1,35 +1,29 @@
-<div class="hero-unit container" style="margin-top:40px;">
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
 <% provide(:title,'Report Volunteer') %>
-  <%= @article.user_id %>
-</p>
+<div class="hero-unit container" style="margin-top:40px;">
 
 <p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @article.content %>
-</p>
-
-<p>
-  <b>Popularity:</b>
-  <%= @article.popularity %>
-</p>
-
-<p>
-  <% pic_exist = Picture.find_by_article_id(@article.id) %>
+<div class="row-fluid">
+<% pic_exist = Picture.find_by_article_id(@article.id) %>
+   <div class="span6">
   <% if pic_exist != nil %>
     <%= image_tag @ppp.image_url(), :alt=>"pic", :size => "600x400" %>
   <% end %>
+</div>
+<div class="span6">
+  <h3><%= @article.title %></h3>
+</div>
+<div class="span6">
+  <%= @article.content %>
+</div>
+<div class="span6">
+  <%= link_to "View all Epilogue", articles_path , :class=> "btn btn-warning alllist" %>
+</div>
 </p>
   
+</div>
+<div class="article_editing">
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <%=link_to "Delete",article_path(@article.id), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
 </div>
