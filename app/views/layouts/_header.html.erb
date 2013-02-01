@@ -1,20 +1,20 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-   	<div class="container">
-		<div class="top">
-		  <div class="logo">
-		    <%= link_to image_tag("logo.png", alt: "Logo", width: "150"  ), root_path  %>
-		  </div>
-		</div>
-	    <nav>
-	        <ul class = "nav pull-right">
-<!--		    <li><%= link_to "Home", root_path %></li>-->
-		    <li><%= link_to "YOUHOO?", youhoo_path %></li>
-		    <li><%= link_to "ORG_LIST", org_lists_path  %></li>
-		    <li><%= link_to "REPORT_VOLUNTEER", articles_path %></li>
-		    <li><%= link_to "SHARE_VOLUNTEER", '#' %></li>
-		    <li><%= link_to "Help", help_path %></li>
-		  <% if current_user &&  current_user.uid == '100001720088532' %>
+<header class="navbar">
+  <div class="navbar-wrapper">
+
+          <div class="navbar-inner">
+            <%= link_to "Youhoo", root_path, class: "brand" %>
+             <div class="nav-collapse collapse">
+               <ul class="nav">
+                    <li><%= link_to "About",youhoo_path %></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Volunteer<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><%= link_to "Write Epiloge", new_article_path %></li>
+                              <li><%= link_to "Share Epilogue", '#' %></li>
+                            </ul>
+                    </li>
+<li><%= link_to "NPO List", org_lists_path %></li>
+                     <% if current_user &&  current_user.uid == '100001720088532' %>
  
 		    <li><%= link_to "Users", users_path %></li>
 		<% end %>
@@ -33,8 +33,8 @@
  		    <% else %>
 		    	<li><%= link_to "Sign in with facebook", "/auth/facebook/", id: "sign_in" %></li>
 		    <% end %>
-		</ul>
-	    </nav>
-	</div>
-    </div>
+                </ul>
+            </div><!--/.nav-collapse -->
+      </div><!-- /.navbar-inner -->
+		</div>
 </header>

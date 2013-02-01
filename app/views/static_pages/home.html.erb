@@ -7,16 +7,73 @@
 </head>
 <body>
 <% if current_user %>
-  <div class="row">
-    <%= image_tag("main.png", alt: "main image"   )  %>
-  </div>
-
-<% else %>
-
-<!--<div class = "hero-unit">-->
-    <%= image_tag("main_img.png", alt: "main image"   )  %>
-<!--</div>-->
-
 <% end %>
+ <!-- Carousel
+    ================================================== -->
+ <% titles = ["Youhoo (Your Epilogue)", "Write Eplilogue", "Best Epilogue?!"] %>
+ <% leads = ["Youhoo means 'Your Voluteer Epilogue'. Thank You.",
+             "Yes! If you write your volunteer epilogue, your contents share with another people",
+             "Now you can see the best volunteer epilogue. hurry up!!!"] %>
+ <% btnText = ["Sign in Facebook", "Learn more", "View Epilogue"] %>
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <% (0..2).each do |n| %>
+          <% if n == 0 %>
+          <div class="item active">
+          <% else %>
+              <div class="item">
+          <% end %>    
+   <%= image_tag("slide-0#{n+1}.jpg", alt: "img#{n+1}") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><%= titles[n] %></h1>
+              <p class="lead"><%= leads[n] %></p>
+              <% if !current_user && n == 0 %>
+                <%= link_to "Sign in Facebook", "/auth/facebook", class: "btn btn-large btn-primary"  %>
+              <% else if n != 0 %>
+                <%= link_to btnText[n], "#", class: "btn btn-large btn-primary"  %>
+              <% end %>
+  <% end %>
+            </div>
+          </div>
+        </div>
+
+
+        <% end %>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+
+
+
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <% img_src = ["browser-icon-chrome.png", "browser-icon-firefox.png", "browser-icon-safari.png"] %>
+        <% titles = ["First featurette headling.", "Oh yeah, it's that good.", "And lastly, this one."] %>
+        <% sTitles = ["It'll blow your mind.", "See for yourself.", "Checkmate."] %>
+        <% leads = ["Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+                    "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+                    "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."] %>
+            <div class="container marketing">
+
+              <% (0..2).each do |n| %>
+                <div class="featurette">
+                    <% if n % 2 == 0 %> 
+                        <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-right") %>
+                    <% else %>   
+                        <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-left") %>
+                    <% end %>
+                    <h2 class="featurette-heading"><%= titles[n] %> <span class="muted"><%= sTitles[n] %></span></h2>
+                    <p class="lead"><%= leads[n] %></p>
+                    </div>
+
+                          <hr class="featurette-divider">
+              <% end %>
+
+                                                        <!-- /END THE FEATURETTES -->
+
+
 </body>
 </html>
