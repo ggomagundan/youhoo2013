@@ -4,8 +4,6 @@
 <head>
 </head>
 <body>
-<% if current_user %>
-<% end %>
  <!-- Carousel
     ================================================== -->
  <% titles = ["Youhoo (Your Epilogue)", "Write Eplilogue", "Best Epilogue?!"] %>
@@ -16,32 +14,29 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <% (0..2).each do |n| %>
-          <% if n == 0 %>
-          <div class="item active">
-          <% else %>
-              <div class="item">
-          <% end %>    
-   <%= image_tag("slide-0#{n+1}.jpg", alt: "img#{n+1}") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1><%= titles[n] %></h1>
-              <p class="lead"><%= leads[n] %></p>
-              <% if !current_user && n == 0 %>
-                <%= link_to "Sign in Facebook", "/auth/facebook", class: "btn btn-large btn-primary"  %>
-              <% else if n != 0 %>
-                <%= link_to btnText[n], "#", class: "btn btn-large btn-primary"  %>
-              <% end %>
-  <% end %>
+            <% if n == 0 %>
+                <div class="item active">
+            <% else %>
+                <div class="item">
+            <% end %>
+            <%= image_tag("slide-0#{n+1}.jpg", alt: "img#{n+1}") %>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1><%= titles[n] %></h1>
+                <p class="lead"><%= leads[n] %></p>
+                <% if !current_user && n == 0 %>
+                   <%= link_to "Sign in Facebook", "/auth/facebook", class: "btn btn-large btn-primary"  %>
+                <% elsif n != 0 %>
+                  <%= link_to btnText[n], "#", class: "btn btn-large btn-primary"  %>
+                <% end %>
             </div>
           </div>
         </div>
 
-
-        <% end %>
+    <% end %>
+        </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-
     </div><!-- /.carousel -->
 
 
