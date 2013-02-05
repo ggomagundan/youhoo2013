@@ -6,15 +6,15 @@
             <%= link_to "Youhoo", root_path, class: "brand" %>
              <div class="nav-collapse collapse">
                <ul class="nav">
-                    <li><%= link_to "About",youhoo_path %></li>
+                    <li><%= link_to "YOUHOO?",youhoo_path %></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Volunteer<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                              <li><%= link_to "Write Epiloge", new_article_path %></li>
-                              <li><%= link_to "Share Epilogue",articles_path %></li>
+                              <li><%= link_to "후기 작성", new_article_path %></li>
+                              <li><%= link_to "후기 공유",articles_path %></li>
                             </ul>
                     </li>
-<li><%= link_to "NPO List", org_lists_path %></li>
+<li><%= link_to "비영리 List", org_lists_path %></li>
                      <% if current_user &&  current_user.uid == '100001720088532' %>
  
 		    <li><%= link_to "Users", users_path %></li>

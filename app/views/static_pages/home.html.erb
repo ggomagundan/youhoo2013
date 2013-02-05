@@ -6,9 +6,9 @@
 <body>
  <!-- Carousel
     ================================================== -->
- <% titles = ["Youhoo (Your Epilogue)", "Write Eplilogue", "Best Epilogue?!"] %>
- <% leads = ["Youhoo means 'Your Voluteer Epilogue'. Thank You.",
-             "Yes! If you write your volunteer epilogue, your contents share with another people",
+ <% titles = ["Talk About Volunteer", "Write Eplilogue", "Best Epilogue?!"] %>
+ <% leads = ["당신의 다양한봉사 후기를 적어보세요.",
+             "당신의 가슴떨린 이야기를 담아주세요.",
              "Now you can see the best volunteer epilogue. hurry up!!!"] %>
  <% btnText = ["Sign in Facebook", "Learn more", "View Epilogue"] %>
     <div id="myCarousel" class="carousel slide">
@@ -19,7 +19,7 @@
             <% else %>
                 <div class="item">
             <% end %>
-            <%= image_tag("slide-0#{n+1}.jpg", alt: "img#{n+1}") %>
+            <%= image_tag("slide-0#{n+1}.png", alt: "img#{n+1}") %>
             <div class="container">
               <div class="carousel-caption">
                 <h1><%= titles[n] %></h1>
