@@ -6,7 +6,8 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'jquery-rails', '2.0.2'
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook' 
+gem 'omniauth-facebook', :git => "git://github.com/bamchi/omniauth-facebook.git"
 
 # to debug on console
 gem 'pry'
