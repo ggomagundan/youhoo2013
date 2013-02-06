@@ -87,9 +87,9 @@ class OrgListsController < ApplicationController
 
 private 
   def is_admin
-    if !current_user || current_user.uid!='100001720088532' 
-	redirect_to signadmin_path
-    end 
+  #  if !current_user || current_user.uid!='100001720088532' 
+	#redirect_to signadmin_path
+  #  end
 
   end
 end
