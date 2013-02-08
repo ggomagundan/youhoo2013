@@ -1,4 +1,5 @@
 <% provide(:title,'Report Volunteer') %>
+<% @graph = Koala::Facebook::API.new('AAAErd2IcXjsBAMZAfYsZAbtMr2XTbj0kQZBH8smbWV5gQ52oO0Y7bWtYoZAWhPYLWfRMVMOdgqwX5N7a5EVZAQ3ZBQZAGfCHOljU5Qxg0xFuFTYZC1tEeLkd') %>
 <div class="hero-unit container" style="margin-top:40px;">
 
 <p>
@@ -16,6 +17,7 @@
   <%= @article.content %>
 </div>
 <div class="span6">
+  <%= link_to image_tag("facebook.png", alt: "facebook", size: "30x30"), '#' %>
   <%= link_to "View all Epilogue", articles_path , :class=> "btn btn-warning alllist" %>
 </div>
 </p>
@@ -24,6 +26,17 @@
 <div class="article_editing">
   <%= link_to 'Edit', edit_article_path(@article) %> |
   <%=link_to "Delete",article_path(@article.id), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+  <% @url =  request.protocol + request.host + url_for(:controller => 'articles', :action => 'show', :id => @article.id)  %>
+  <!-- using http://www.fbshare.me/ -->
+  <script>var fbShare = {
+url: <%= @url %>,
+title: <%= @article.title %>,
+size: 'large',
+badge_text: 'C0C0C0',
+badge_color: 'CC00FF',
+google_analytics: 'true'
+  }</script>
+  <script src="http://widgets.fbshare.me/files/fbshare.js"></script>
 </div>
 
 </div>

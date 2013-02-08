@@ -9,6 +9,7 @@ gem 'kaminari'
 gem 'jquery-rails', '2.0.2'
 #gem 'omniauth-facebook' 
 gem 'omniauth-facebook', :git => "git://github.com/bamchi/omniauth-facebook.git"
+gem 'koala'
 
 # to debug on console
 gem 'pry'
