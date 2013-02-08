@@ -30,9 +30,10 @@ jQuery(document).ready(function($){
         <a rel="nature" title="" href="#nature" class="btn btn-danger btn-small" data-filter=".nature">Your Epilogue</a>
         <a rel="wildlife" title="" href="#wildlife" class="btn btn-danger btn-small" data-filter=".wildlife">Another Epilogue</a>
       </div>  
+<% paginate @articles %>
       <div id="portfolio-wrapper portfolio-three-column">
           <ul id="portfolio-list" class="thumbnails">
-            <% @articles.reverse.each do |article| %>
+            <%- @articles.each do |article| -%>
               <% pic_exist = Picture.find_by_article_id(article.id) %>
               <li class="span4 block">
               <% if pic_exist != nil %>
@@ -53,8 +54,9 @@ jQuery(document).ready(function($){
       </div>
     </div>
   </div>
+<%= paginate @articles %>
 </div>
 
 </br> </br>
-Current_user : <%= !current_user.nil? %>
+<!-- Current_user : <%= !current_user.nil? %> -->
 </div>

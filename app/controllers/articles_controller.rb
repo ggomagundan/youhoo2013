@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   before_filter :is_login, only: [:new, :edit]
 
   def index
-    @articles = Article.all
+    @articles = Article.order("id DESC").page(params[:page]).per(6)
+
 
     respond_to do |format|
       format.html # index.html.erb

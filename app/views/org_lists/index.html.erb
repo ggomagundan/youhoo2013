@@ -33,10 +33,10 @@
     <tbody>
 <% @org_lists.reverse.each do |org_list| %>
   <tr>
-    <td><%= link_to(org_list.name, org_list) %></td>
+    <td><%= org_list.name %></td>
     <td><%= org_list.desc %></td>
     <td><%= org_list.tel %></td>
-    <td> </td>
+    <td><%= link_to String.try_convert(org_list.url), org_list.url %></td>
 <% if current_user &&  current_user.uid == '100001720088532' %>
     <td><%= org_list.views %></td>
    <% end %> 
