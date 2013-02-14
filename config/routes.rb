@@ -9,7 +9,10 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   root :to => 'static_pages#home'
-  
+ 
+  match '/myArticles', to: 'articles#myArticles'
+  match '/anoArticles', to: 'articles#anoArticles'
+
   match '/help', to: 'static_pages#help'
   match '/youhoo', to: 'static_pages#youhoo'
   match '/about', to: 'static_pages#about'

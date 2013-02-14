@@ -6,11 +6,13 @@
 <body>
  <!-- Carousel
     ================================================== -->
- <% titles = ["Talk About Volunteer", "Write Eplilogue", "Best Epilogue?!"] %>
- <% leads = ["당신의 다양한봉사 후기를 적어보세요.",
-             "당신의 가슴떨린 이야기를 담아주세요.",
-             "Now you can see the best volunteer epilogue. hurry up!!!"] %>
+ <% titles = ["Talk About Volunteer", "Write Your Eplilogue", "Your Best Epilogue?!"] %>
+ <% leads = ["공익서비스팀 후기공유서비스 제작중입니다. 당신의 못다한 이야기를 들려주세요.",
+   "안녕하세요 쿠킷입니다 당신의 후기는 어떠십니까",
+             "공익서비스팀 후기공유서비스 제작중입니다. 최고의 후기를 뽑아주세요."] %>
  <% btnText = ["Sign in Facebook", "Learn more", "View Epilogue"] %>
+ <% word_size = ["523x23", "435x23", "325x51"] %>
+
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <% (0..2).each do |n| %>
@@ -19,13 +21,18 @@
             <% else %>
                 <div class="item">
             <% end %>
-            <%= image_tag("slide-0#{n+1}.png", alt: "img#{n+1}") %>
+            <%= image_tag("main_back#{n}.png", alt: "img#{n+1}") %>
             <div class="container">
               <div class="carousel-caption">
                 <h1><%= titles[n] %></h1>
-                <p class="lead"><%= leads[n] %></p>
+                <p class="lead"><%= leads[n] %>
+                <% if n==1 %>
+                  <br />가슴 떨리는 이야기를 들려주세요.
+                <% end %>
+                
+                </p>
                 <% if !current_user && n == 0 %>
-                   <%= link_to "Sign in Facebook", "/auth/facebook", class: "btn btn-large btn-primary"  %>
+                  <%= link_to "Sign in Facebook", "/auth/facebook", class: "btn btn-large btn-primary"  %>
                 <% elsif n != 0 %>
                   <%= link_to btnText[n], "#", class: "btn btn-large btn-primary"  %>
                 <% end %>
@@ -54,18 +61,16 @@
             <div class="container marketing">
 
               <% (0..2).each do |n| %>
-                <div class="featurette">
-                    <% if n % 2 == 0 %> 
-                      <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-right") %>
-                    <% else %>   
-                      <%= image_tag(img_src[n], alt: "image", class: "featurette-image pull-left" ) %>
+                <div class="featurette main_img<%=n%>">
+                    <%= image_tag("main#{n}.png", alt:"image", class:"main_image") %>
+                    <% if n ==1 %>
+                        <div class="youhoo_btn">
+                        Click YOUHOO
+                      </div>
                     <% end %>
-                    <h2 class="featurette-heading"><%= titles[n] %> <span class="muted"><%= sTitles[n] %></span></h2>
-                    <p class="lead"><%= leads[n] %></p>
-                    </div>
+                  </div>
+                <% end %>
 
-                          <hr class="featurette-divider">
-              <% end %>
 
                                                         <!-- /END THE FEATURETTES -->
 

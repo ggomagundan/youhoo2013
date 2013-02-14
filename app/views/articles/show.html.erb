@@ -24,8 +24,10 @@
   
 </div>
 <div class="article_editing">
+<% if current_user && (current_user.uid == '100001720088532' || current_user.id == @ariticle.user_id) %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
   <%=link_to "Delete",article_path(@article.id), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+<% end %>
   <% @url =  request.protocol + request.host + url_for(:controller => 'articles', :action => 'show', :id => @article.id)  %>
   <!-- using http://www.fbshare.me/ -->
   <script>var fbShare = {

@@ -13,6 +13,26 @@ class ArticlesController < ApplicationController
       format.json { render json: @articles }
     end
   end
+ def myArticles
+    @articles = Article.where(:user_id=>current_user.id).order("id DESC").page(params[:page]).per(6)
+
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @articles }
+    end
+  end
+ def anoArticles
+    @articles = Article.where(["user_id NOT IN (?)", current_user.id]).order("id DESC").page(params[:page]).per(6)
+
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @articles }
+    end
+  end
+
+
 
   # GET /articles/1
   # GET /articles/1.json
@@ -106,11 +126,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def updates
+  end
+
   private
   def is_login
     if current_user.nil?
-	redirect_to signin_path
-
+#	redirect_to signin_path
+      flash.now[:alert] = 'plz login'
+      render :updates do |page|
+          page << "alert('hello world');"
+      end
     end
   end
 end

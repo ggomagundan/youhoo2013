@@ -32,7 +32,7 @@
     .navbar .brand {
       padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
       font-size: 16px;
-      font-weight: bold;
+      /*font-weight: bold;*/
       text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     }
 
@@ -70,6 +70,17 @@
    .carousel .item {
       height: 500px;
    }
+   .face{
+     width:350px;
+   }
+   .face img.facebook{
+     width:50px;
+     height:50px;
+   }
+   .face a{
+     float:left;
+     display:block;
+   }
    .carousel img {
       position: absolute;
       top: 0;
@@ -80,7 +91,7 @@
    .carousel-caption {
       background-color: transparent;
       position: static;
-      max-width: 550px;
+      max-width: 800px;
       padding: 0 20px;
       margin-top: 200px;
    }
@@ -90,6 +101,7 @@
       line-height: 1.25;
       color: #fff;
       text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      text-align:left;
    }
    .carousel-caption .btn {
       margin-top: 10px;
@@ -118,6 +130,7 @@
   }
   .featurette {
      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+     padding-bottom:100px;
      overflow: hidden; /* Vertically center images part 2: clear their floats. */
   }
   .featurette-image {
@@ -178,6 +191,7 @@
          margin: -20px;
     }
 
+
     .carousel {
          margin-left: -20px;
          margin-right: -20px;
@@ -217,3 +231,35 @@
 
 }
 
+
+.main_image{
+  display: block;   
+  margin-left: auto;   
+  margin-right: auto;
+}
+
+.main_img0{
+  background-color:#ffffff;
+}
+
+.main_img1{
+  background-color:#6fb6a4;
+  .youhoo_btn{
+    text-align:center;
+    margin: 20px auto;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    width:150px;
+    height:50px;
+    line-height:50px;
+    background-color:#2f6e4f;
+    color:#6fb6a4;
+    font-size:1.2em;
+
+    
+  }
+}
+
+.main_img2{
+  background-color:#fffFff;
+}
