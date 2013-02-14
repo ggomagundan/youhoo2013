@@ -36,7 +36,17 @@
                 <% elsif n != 0 %>
                   <%= link_to btnText[n], "#", class: "btn btn-large btn-primary"  %>
                 <% end %>
-            </div>
+              </div>
+              <% if n==2 %>
+                <div class="main_picture">
+                  <div class="album"><%= image_tag("fir.png", alt:"test", class:"pic") %></div>
+                  <div class="album"><%= image_tag("sec.png", alt:"test", class:"pic") %></div>
+                  <div class="album"><%= image_tag("thir.png", alt:"test", class:"pic") %></div>
+                  <div class="album"><%= image_tag("four.png", alt:"test", class:"pic") %></div>
+                </div>
+              <% end %>
+
+
           </div>
         </div>
 

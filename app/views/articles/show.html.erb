@@ -30,15 +30,12 @@
 <% end %>
   <% @url =  request.protocol + request.host + url_for(:controller => 'articles', :action => 'show', :id => @article.id)  %>
   <!-- using http://www.fbshare.me/ -->
-  <script>var fbShare = {
-url: <%= @url %>,
-title: <%= @article.title %>,
-size: 'large',
-badge_text: 'C0C0C0',
-badge_color: 'CC00FF',
-google_analytics: 'true'
-  }</script>
   <script src="http://widgets.fbshare.me/files/fbshare.js"></script>
-</div>
+  <script>
+    var fbShare = {
+      title : "this is title"
+    }
+    </script>
 
+</div>
 </div>

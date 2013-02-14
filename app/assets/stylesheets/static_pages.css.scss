@@ -81,6 +81,35 @@
      float:left;
      display:block;
    }
+
+   .main_picture{
+     width:300px;
+     height:300px;
+    float:left;
+    top:100px;
+    left:800px;
+    position:absolute;
+   }
+   .main_picture img.pic{
+     width:120px;
+     height:120px;
+     min-width:120px;
+     display:block;
+     position: inherit;
+     top: auto;
+     margin: 2px auto 0px auto;
+     left: auto;
+
+   }
+
+    .main_picture .album{
+      width:130px;
+      height:140px;
+      background-color:#ffffff;
+      float:left;
+      margin:5px;
+    }
+
    .carousel img {
       position: absolute;
       top: 0;
