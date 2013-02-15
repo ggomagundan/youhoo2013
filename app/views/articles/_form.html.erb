@@ -12,11 +12,11 @@
   <% end %>
   <div class="field">
     <%- f.label :title -%>
-    <%= f.text_field :title, :style => "width:500px;", :placeholder =>"title" %>
+    <%= f.text_field :title, :style => "width:500px;", :placeholder =>"제목" %>
   </div>
   <div class="field">
     <%- f.label :content -%>
-    <%= f.text_area :content, :size => "20x10", :placeholder =>"show your report" , :maxlength => 140, :style => "width:800px;height:200px;" %>
+    <%= f.text_area :content, :size => "20x10", :placeholder =>"ex) 오늘 간 봉사활동 완전 보람있었어요 (140 제한)" , :maxlength => 140, :style => "width:800px;height:200px;" %>
   </div>
   <div class="field">
     <%- f.label :photo_id -%>
