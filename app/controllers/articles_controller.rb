@@ -78,7 +78,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
          @picture.save
-        format.html { redirect_to articles_path, notice: 'Article was successfully created.' }
+        format.html { redirect_to articles_path}
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
@@ -96,11 +96,11 @@ class ArticlesController < ApplicationController
     params[:article]['photo_id'] = ''
     #binding.pry
 
-    binding.pry
+#    binding.pry
     respond_to do |format|
       if @article.update_attributes(params[:article])
         @picture.first.update_attributes(current_picture)
-        format.html { redirect_to articles_path, notice: 'Article was successfully updated.' }
+        format.html { redirect_to articles_path }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
