@@ -3,11 +3,20 @@
   <div class="span12">
     <div id="content" style="padding-top:100px;">
       <div data-toggle="buttons-radio" class="btn-group" id="portfolio-filter">
-        <a title="" data-filter="*" href="#all" class="btn btn-danger btn-small active">All</a>
-        <a rel="nature" title="" href="#nature" class="btn btn-danger btn-small" data-filter=".nature">Your Epilogue</a>
-        <a rel="wildlife" title="" href="#wildlife" class="btn btn-danger btn-small" data-filter=".wildlife">Another Epilogue</a>
-      </div>  
-<% paginate @articles %>
+        <% if params[:action] == "index" %>
+          <%= link_to "All", '#', :class=> "btn btn-danger btn-small active" %>
+          <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
+        <% elsif params[:action] == "myArticles" %>
+          <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "Your Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
+          <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
+        <% else %>
+          <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "Another Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
+        <% end %>
+      </div> 
       <div id="portfolio-wrapper portfolio-three-column">
           <ul id="portfolio-list" class="thumbnails">
             <%- @articles.each do |article| -%>
