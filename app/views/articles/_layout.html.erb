@@ -3,18 +3,22 @@
   <div class="span12">
     <div id="content" style="padding-top:100px;">
       <div data-toggle="buttons-radio" class="btn-group" id="portfolio-filter">
+
         <% if params[:action] == "index" %>
           <%= link_to "All", '#', :class=> "btn btn-danger btn-small active" %>
-          <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
-          <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
-        <% elsif params[:action] == "myArticles" %>
+          <% if current_user %>
+            <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
+            <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
+          <% end %>
+        <% elsif current_user && params[:action] == "myArticles" %>
           <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
           <%= link_to "Your Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
           <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
-        <% else %>
+        <% elsif current_user && params[:action] == "anoArticles" %>
           <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
           <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
           <%= link_to "Another Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
+        <% else %>
         <% end %>
       </div> 
       <div id="portfolio-wrapper portfolio-three-column">
@@ -31,8 +35,8 @@
 
 
               <h4><%= link_to article.title, article_path(article.id) %></h4>
-              <p class="project-links"><%= link_to "View Epilogue", article_path(article.id), :class=>"btn btn-block btn-primary btn-default" %></p>
               <!-- <h6> edit    delete </h6> -->
+              <p class="project-links"><%= link_to "후기 보기", article_path(article.id), :class=>"btn btn-block btn-primary btn-default" %></p>
               </li>
             <% end %>
           </div>
