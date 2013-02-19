@@ -37,9 +37,6 @@
     <td><%= org_list.desc %></td>
     <td><%= org_list.tel %></td>
     <td><%= link_to String.try_convert(org_list.url), org_list.url %></td>
-<% if current_user &&  current_user.uid == '100001720088532' %>
-    <td><%= org_list.views %></td>
-   <% end %> 
   </tr>
 <% end %>
     </tbody>
