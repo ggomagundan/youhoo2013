@@ -132,11 +132,7 @@ class ArticlesController < ApplicationController
   private
   def is_login
     if current_user.nil?
-#	redirect_to signin_path
-      flash.now[:alert] = 'plz login'
-      render :updates do |page|
-          page << "alert('hello world');"
-      end
+	redirect_to signin_path
     end
   end
 end
