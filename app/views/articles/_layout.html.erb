@@ -11,11 +11,11 @@
             <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
           <% end %>
         <% elsif current_user && params[:action] == "myArticles" %>
-          <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "All", articles_path, :class=> "btn btn-danger btn-small" %>
           <%= link_to "Your Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
           <%= link_to "Another Epilogue", 'anoArticles', :class=> "btn btn-danger btn-small " %>
         <% elsif current_user && params[:action] == "anoArticles" %>
-          <%= link_to "All", 'articles_path', :class=> "btn btn-danger btn-small" %>
+          <%= link_to "All", articles_path, :class=> "btn btn-danger btn-small" %>
           <%= link_to "Your Epilogue", 'myArticles', :class=> "btn btn-danger btn-small" %>
           <%= link_to "Another Epilogue", '#', :class=> "btn btn-danger btn-small active" %>
         <% else %>
