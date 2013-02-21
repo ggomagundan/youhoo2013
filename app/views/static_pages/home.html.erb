@@ -7,7 +7,7 @@
  <!-- Carousel
     ================================================== -->
  <% titles = ["Talk About Volunteer", "Write Your Eplilogue", "Your Best Epilogue?!"] %>
- <% leads = ["공익서비스팀 후기공유서비스 제작중입니다. 당신의 못다한 이야기를 들려주세요.",
+ <% leads = ["봉사후기 공유 서비스 유후(Youhoo)입니다.",
    "안녕하세요 쿠킷입니다 당신의 후기는 어떠십니까",
              "공익서비스팀 후기공유서비스 제작중입니다. 최고의 후기를 뽑아주세요."] %>
  <% btnText = ["Sign in Facebook", "Learn more", "View Epilogue"] %>
@@ -28,6 +28,8 @@
                 <p class="lead"><%= leads[n] %>
                 <% if n==1 %>
                   <br />가슴 떨리는 이야기를 들려주세요.
+                <% elsif n==0 %>
+                  <br />당신의 감동 어린 봉사 이야기를 전해주세요.
                 <% end %>
                 
                 </p>
@@ -72,14 +74,9 @@
                     "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."] %>
             <div class="marketing">
 
-              <% (0..2).each do |n| %>
+              <% (0..1).each do |n| %>
                 <div class="featurette main_img<%=n%>">
                     <%= image_tag("main#{n}.png", alt:"image", class:"main_image") %>
-                    <% if n ==1 %>
-                        <div class="youhoo_btn">
-                        Click YOUHOOs
-                      </div>
-                    <% end %>
                   </div>
                 <% end %>
 
