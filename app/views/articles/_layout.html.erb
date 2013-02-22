@@ -26,11 +26,12 @@
             <%- @articles.each do |article| -%>
               <% pic_exist = Picture.find_by_article_id(article.id) %>
               <li class="span4 block">
-              <% if pic_exist != nil %>
+              <% if article.picture.first[:image].nil? %>
+              <% binding.pry %>
+                <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/uhootest/image/blank1.png", :alt => "picture", :class => "attachment-port-full wp-post-image"), article_path(article.id) %>
+              <% else %>
                 <% @image = article.picture.first %>
                 <%= link_to image_tag(@image.image_url(:thumb), :alt => "picture", :class => "attachment-port-full wp-post-image", :style=>"width:370px;height:245px;"), article_path(article.id) %>
-              <% else %>
-                <%= link_to image_tag("cookit.jpg", :alt => "picture", :class => "attachment-port-full wp-post-image"), article_path(article.id) %>
               <% end %>
 
 
@@ -45,10 +46,6 @@
     </div>
   </div>
   <%= paginate @articles %>
-<<<<<<< HEAD
-=======
-  <%= page.current_pages %>
->>>>>>> 93e6e3a9637a402d163eb7e01ea68732e9e30c11
 </div>
 
 </br> </br>

@@ -73,8 +73,11 @@ class ArticlesController < ApplicationController
     #binding.pry
     @pic = {image: @article.photo_id}
     @picture = @article.picture.new(@pic)
+    if @pic[:image].nil?
+      @pic[:image] = "https://s3-ap-northeast-1.amazonaws.com/uhootest/image/blank1.png"
+    end
     @article.photo_id = ""
-
+    binding.pry
     respond_to do |format|
       if @article.save
          @picture.save

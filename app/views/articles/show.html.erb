@@ -6,8 +6,11 @@
 <div class="row-fluid">
 <% pic_exist = Picture.find_by_article_id(@article.id) %>
    <div class="span6">
-  <% if pic_exist != nil %>
-    <%= image_tag @ppp.image_url(), :alt=>"pic", :size => "600x400" %>
+    <% if @ppp[:image].nil? %>
+      <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/uhootest/image/blank1.png", :alt=>"pic", :size => "600x400" %>
+    <% elsif  %>
+     <%= image_tag @ppp.image_url(), :alt=>"pic", :size => "600x400" %>
+
   <% end %>
 </div>
 <div class="span6">
