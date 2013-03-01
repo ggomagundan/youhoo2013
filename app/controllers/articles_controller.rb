@@ -53,7 +53,8 @@ class ArticlesController < ApplicationController
   def new
 
     @article = Article.new
-
+    @uploader = @article.picture.new[:image]
+    binding.pry
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
@@ -68,9 +69,10 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    binding.pry
     @article = current_user.articles.new(params[:article])
     @article.popularity =0;
-    #binding.pry
+
     @pic = {image: @article.photo_id}
     @picture = @article.picture.new(@pic)
     if @pic[:image].nil?

@@ -19,6 +19,7 @@
     <%= f.text_area :content, :size => "20x10", :placeholder =>"ex) 오늘 간 봉사활동 완전 보람있었어요 (140 제한)" , :maxlength => 140, :style => "width:800px;height:200px;" %>
   </div>
   <div class="field">
+
     <%- f.label :photo_id -%>
     <%= f.file_field :photo_id %>
   </div>
@@ -27,3 +28,9 @@
   </div>
 
 <% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit "upload" %>
+<% end %>
+

@@ -10,7 +10,6 @@ gem 'jquery-rails', '2.0.2'
 #gem 'omniauth-facebook' 
 gem 'omniauth-facebook', :git => "git://github.com/bamchi/omniauth-facebook.git"
 gem 'koala'
-gem 'fog'
 # to debug on console
 gem 'pry'
 
@@ -20,6 +19,9 @@ gem 'json'
 # to upload image
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
